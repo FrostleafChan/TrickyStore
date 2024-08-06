@@ -78,14 +78,18 @@ object Config {
     }
 
     fun needHack(callingUid: Int) = kotlin.runCatching {
-        if (hackPackages.isEmpty()) return false
+        /* if (hackPackages.isEmpty()) return false
         val ps = getPm()?.getPackagesForUid(callingUid)
         ps?.any { it in hackPackages }
-    }.onFailure { Logger.e("failed to get packages", it) }.getOrNull() ?: false
+    }.onFailure { Logger.e("failed to get packages", it) }.getOrNull() ?: false */
+        return true
 
     fun needGenerate(callingUid: Int) = kotlin.runCatching {
+        /*
         if (generatePackages.isEmpty()) return false
         val ps = getPm()?.getPackagesForUid(callingUid)
         ps?.any { it in generatePackages }
     }.onFailure { Logger.e("failed to get packages", it) }.getOrNull() ?: false
+    */
+        return true
 }
